@@ -152,6 +152,17 @@ export const useApi = () => {
 
 ---
 
+
+## 🧾 Template visual de referência
+
+Vocês podem usar esse layout como inspiração para o design da interface:
+
+🔗 Template visual no Lovable
+
+https://bordo-diario-fullstack.lovable.app/
+
+
+
 ## 🧾 Checklist antes de abrir o PR
 
 - [ ] A branch está com seu nome? (ex: `desenvolvimento/joao`)
