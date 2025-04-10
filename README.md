@@ -41,8 +41,9 @@ git checkout -b desenvolvimento/joao
 
 
 ```bash
-git clone https://github.com/seu-usuario/diario-bordo.git
-cd diario-bordo
+git clone https://github.com/Mixchelle/-Projeto-Fullstack-Di-rio-de-Bordo.git
+cd projeto-fullstack-diario-de-bordo
+
 ```
 
 2. Verificar se o Python está instalado
