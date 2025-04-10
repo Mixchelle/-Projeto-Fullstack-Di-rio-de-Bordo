@@ -1,27 +1,51 @@
+
 # 🚀 Projeto Fullstack — Diário de Bordo
 
 ## 🧠 Objetivo
 
-Aprender e praticar o fluxo completo de desenvolvimento: **frontend + backend integrados**.  
+Aprender e praticar o fluxo completo de desenvolvimento: **frontend + backend integrados**.
+
 A proposta é criar um pequeno diário onde usuários podem cadastrar entradas com título e conteúdo, e visualizar todos os registros feitos.
 
 > 🎯 O foco é:  
 > - Aprender a **enviar dados do frontend para o backend**  
 > - Aprender a **listar dados do backend no frontend**  
 > - Criar hooks de API personalizados (`useApi`)  
-> - Rodar os dois servidores (Next.js e Django) juntos em paralelo
+> - Rodar os dois servidores (Next.js e Django) juntos em paralelo  
+> - Trabalhar com **branches, issues e pull requests**
 
+---
 
-## 🗂️ Estrutura de repositório
+## 👤 Organização do projeto por desenvolvedor(a)
 
-Este projeto será feito em um **único repositório**, com frontend e backend separados por pastas:
+### ✅ O que cada pessoa deve fazer:
 
+1. **Criar uma issue no GitHub com seu nome**  
+   Ex: `Implementação de João`
+
+2. **Criar uma branch com seu nome no padrão abaixo:**
+
+```bash
+git checkout -b desenvolvimento/joao
+```
+
+3. Trabalhar normalmente nessa branch (sem dar push na `main`!)
+
+4. Ao finalizar a tarefa, **abrir um Pull Request** para a `main`, vinculando à issue.
+
+---
+
+## 🗂️ Estrutura do repositório
+
+```
 diario-bordo/
 ├── frontend/      → Aplicação Next.js
 ├── backend/       → Aplicação Django + PostgreSQL
 ├── README.md
 └── .gitignore
+```
 
+---
 
 ## 🔧 Tecnologias utilizadas
 
@@ -42,78 +66,47 @@ diario-bordo/
 
 ## 📝 Requisitos do Projeto
 
-### ✅ Funcionalidades
-
-#### 📌 Backend
+### Backend
 - Criar o model `Registro` com os campos:
-  - `titulo` (CharField, máx 100)
+  - `titulo` (CharField)
   - `conteudo` (TextField)
   - `criado_em` (DateTimeField auto_now_add)
 
-- Criar endpoints:
-  - `POST /api/registros/` → salva novo registro
-  - `GET /api/registros/` → retorna todos os registros em ordem de criação
+- Endpoints:
+  - `GET /api/registros/`
+  - `POST /api/registros/`
 
-- Ativar CORS para `http://localhost:3000`
+- Liberar CORS para `http://localhost:3000`
 
-#### 📌 Frontend
-- Criar um formulário com os campos:
-  - Título
-  - Conteúdo
-  - Botão de "Salvar"
+### Frontend
+- Criar formulário com título + conteúdo
+- Criar `useApi.js` com:
+  - `getRegistros()`
+  - `createRegistro(data)`
 
-- Criar `hook` personalizado para chamadas API:
-  - Arquivo: `hooks/useApi.js`
-  - Funções: `getRegistros()`, `createRegistro(data)`
-
-- Listar registros abaixo do formulário:
-  - Mostrar título, data e conteúdo
-  - Mostrar mensagem caso não haja registros
-
+- Mostrar registros abaixo do formulário
 - Estilizar com TailwindCSS
 
-- Mostrar alertas em caso de erro ou sucesso no envio
-
 ---
 
-## ⚙️ Como rodar o projeto localmente
+## ⚙️ Como rodar localmente
 
-### Pré-requisitos
-- Python 3.10+
-- Node.js 18+
-- PostgreSQL rodando localmente
-- Yarn ou npm
-
-### 1. Clonar o projeto
-
-```bash
-git clone https://github.com/seu-usuario/diario-bordo.git
-cd diario-bordo
-```
-
----
-
-### 2. Rodar o Backend
+### Backend
 
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # ou venv\Scripts\activate no Windows
+source venv/bin/activate
 pip install -r requirements.txt
-
-# Criar banco e rodar as migrações
-python manage.py makemigrations
 python manage.py migrate
-
-# Rodar servidor
 python manage.py runserver
 ```
 
-> A API estará em `http://localhost:8000/api/registros/`
+A API estará em: `http://localhost:8000/api/registros/`
 
 ---
 
-### 3. Rodar o Frontend
+### Frontend
 
 ```bash
 cd frontend
@@ -121,11 +114,22 @@ npm install
 npm run dev
 ```
 
-> O site estará em `http://localhost:3000`
+O site estará em: `http://localhost:3000`
 
 ---
 
-## 🔄 Exemplo de `useApi.js`
+## 🧠 Divisão sugerida por dia
+
+| Dia | Tarefa                                  |
+|-----|------------------------------------------|
+| 1   | Setup inicial + model + formulário       |
+| 2   | API funcionando (GET/POST) + CORS        |
+| 3   | Integração front/back + useApi + listagem|
+| 4   | Feedbacks, validações e estilos finais   |
+
+---
+
+## ✨ Exemplo de `useApi.js`
 
 ```js
 import axios from '../services/api';
@@ -148,52 +152,17 @@ export const useApi = () => {
 
 ---
 
-## 📦 Organização sugerida
+## 🧾 Checklist antes de abrir o PR
 
+- [ ] A branch está com seu nome? (ex: `desenvolvimento/joao`)
+- [ ] A task está vinculada a uma issue com seu nome?
+- [ ] O projeto roda localmente (`frontend` e `backend`)?
+- [ ] O PR está claro, com um título objetivo? (ex: `feat: implementação do formulário`)
+
+---
+
+## 🤝 Ajuda
+
+Se precisar de ajuda com Git, rotas, Django, Next.js, Tailwind, ou quiser tirar dúvidas sobre os hooks ou CORS, so me pedir ajuda 😄  
+Bora aprender juntos e trabalhar como um time de verdade 🚀
 ```
-diario-bordo/
-├── frontend/
-│   ├── pages/
-│   │   └── index.js          → Formulário + listagem
-│   ├── hooks/
-│   │   └── useApi.js
-│   ├── services/
-│   │   └── api.js            → Instância do Axios
-│   └── styles/               → Tailwind
-│
-├── backend/
-│   ├── diario_bordo/         → Configurações Django
-│   ├── registros/            → App com model, views, urls
-│   ├── manage.py
-```
-
----
-
-## 🧠 Divisão sugerida por dia
-
-| Dia | Tarefa                                  |
-|-----|------------------------------------------|
-| 1   | Setup inicial + model + formulário       |
-| 2   | API funcionando (GET/POST) + CORS        |
-| 3   | Integração front/back + useApi + listagem|
-| 4   | Feedbacks, validações e estilos finais   |
-
----
-
-## ⭐ Extras (opcional para quem quiser ir além)
-
-- Página de detalhes de registro (`/registros/[id]`)
-- Deleção de registro
-- Autenticação simples
-- Deploy no Vercel + Render
-
----
-
-## 🫂 Dica final
-
-Rodar um projeto fullstack é desafiador no início, mas **extremamente recompensador**.  
-Testem cada parte separadamente, confirmem com o Postman, e depois integrem.
-
-**Qualquer dúvida, chama no grupo ou fala comigo! 🚀**
-
-
