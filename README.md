@@ -36,7 +36,7 @@ git checkout -b desenvolvimento/joao
 
 ---
 
-##🧱 Primeiros Passos
+## 🧱 Primeiros Passos
 1. Clonar o projeto
 
 
