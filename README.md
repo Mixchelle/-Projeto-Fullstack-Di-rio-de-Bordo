@@ -16,6 +16,7 @@ A proposta é criar um pequeno diário onde usuários podem cadastrar entradas c
 
 ---
 
+
 ## 👤 Organização do projeto por desenvolvedor(a)
 
 ### ✅ O que cada pessoa deve fazer:
@@ -34,6 +35,45 @@ git checkout -b desenvolvimento/joao
 4. Ao finalizar a tarefa, **abrir um Pull Request** para a `main`, vinculando à issue.
 
 ---
+
+##🧱 Primeiros Passos
+1. Clonar o projeto
+
+
+```bash
+git clone https://github.com/seu-usuario/diario-bordo.git
+cd diario-bordo
+```
+
+2. Verificar se o Python está instalado
+
+```bash
+python --version
+```
+Se não estiver instalado, siga o guia abaixo conforme seu sistema operacional:
+
+🔧 Instalação do Python
+<details> <summary><strong>Linux (Ubuntu/Debian)</strong></summary>
+   
+```bash
+sudo apt update
+sudo apt install python3 python3-venv python3-pip
+```
+
+</details> <details> <summary><strong>Windows</strong></summary>
+Baixe o instalador em: https://www.python.org/downloads/windows/
+
+Execute o instalador e marque a opção "Add Python to PATH"
+
+Finalize a instalação
+
+Teste no terminal (cmd):
+
+```bash
+python --version
+```
+</details>
+
 
 ## 🗂️ Estrutura do repositório
 
